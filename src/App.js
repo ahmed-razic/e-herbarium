@@ -12,8 +12,10 @@ import Navbar from './components/Navbar'
 import { AlertProvider } from './context/alert/AlertContext'
 import { PlantProvider } from './context/plant/PlantContext'
 import PrivateRoute from './components/PrivateRoute'
+import { getData } from './context/plant/PlantActions'
 
 function App() {
+  getData()
   return (
     <>
       <PlantProvider>

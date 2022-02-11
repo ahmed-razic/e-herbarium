@@ -33,7 +33,6 @@ export const getData = async () => {
   try {
     const response = await plants.post('/speciesSearch', data)
     if (response.status === 200) {
-      console.log(response.data.results)
       console.log('successfully retrieved data')
       return true
     }
@@ -43,40 +42,3 @@ export const getData = async () => {
     return false
   }
 }
-
-/* export const natureServe = () => {
-  var url = 'https://explorer.natureserve.org/api/data/speciesSearch'
-
-  var xhr = new XMLHttpRequest()
-  xhr.open('POST', url)
-  xhr.setRequestHeader('Accept', 'application/json')
-  xhr.setRequestHeader('Content-Type', 'application/json')
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      console.log(xhr.status)
-      console.log(xhr.responseText)
-    }
-  }
-
-  var data = `{
-  "criteriaType" : "species",
-  "textCriteria" : [{
-    "paramType" : "quickSearch",
-    "searchToken" : "Urspelerpes brucei"
-  }
-   ],
-  "statusCriteria" : [ ],
-  "locationCriteria" : [ ],
-  "pagingOptions" : {
-    "page" : null,
-    "recordsPerPage" : null
-  },
-  "recordSubtypeCriteria" : [ ],
-  "modifiedSince" : null,
-  "locationOptions" : null,
-  "classificationOptions" : null,
-  "speciesTaxonomyCriteria" : [ ]
-}`
-  xhr.send(data)
-} */
