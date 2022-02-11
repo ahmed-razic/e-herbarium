@@ -14,7 +14,7 @@ export const getData = async () => {
     textCriteria: [
       {
         paramType: 'quickSearch',
-        searchToken: 'Urspelerpes brucei',
+        searchToken: 'salamander',
       },
     ],
     statusCriteria: [],
@@ -33,18 +33,19 @@ export const getData = async () => {
   try {
     const response = await plants.post('/speciesSearch', data)
     if (response.status === 200) {
-      console.log(response.data.results)
+      console.log(response.data.results[0].primaryCommonName)
       console.log('successfully retrieved data')
       return true
     }
     return false
-  } catch (error) {
-    console.error(error)
+  } catch (err) {
+    console.error(err)
     return false
   }
 }
 
-/* export const natureServe = () => {
+/*Alternative way of retriving data 
+  export const natureServe = () => {
   var url = 'https://explorer.natureserve.org/api/data/speciesSearch'
 
   var xhr = new XMLHttpRequest()
