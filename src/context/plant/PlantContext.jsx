@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react'
-import { plantReducer } from './PlantReducer'
+import plantReducer from './PlantReducer'
 
 const PlantContext = createContext()
 
@@ -9,6 +9,7 @@ export const PlantProvider = ({ children }) => {
     loading: false,
   }
   const [state, dispatch] = useReducer(plantReducer, initialState)
+
   return (
     <PlantContext.Provider value={{ state, dispatch }}>
       {children}

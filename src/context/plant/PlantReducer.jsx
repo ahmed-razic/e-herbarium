@@ -14,7 +14,7 @@ const plantReducer = (state, action) => {
     case 'CLEAR_PLANT':
       return {
         ...state,
-        plant: null,
+        plant: {},
       }
     default:
       return state
