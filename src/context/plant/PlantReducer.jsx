@@ -15,6 +15,7 @@ const plantReducer = (state, action) => {
       return {
         ...state,
         plant: {},
+        loading: false,
       }
     default:
       return state

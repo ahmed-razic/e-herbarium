@@ -12,10 +12,9 @@ import Navbar from './components/Navbar'
 import { AlertProvider } from './context/alert/AlertContext'
 import { PlantProvider } from './context/plant/PlantContext'
 import PrivateRoute from './components/PrivateRoute'
-import { getData } from './context/plant/PlantActions'
+import Spinner from './components/Spinner'
 
 function App() {
-  getData()
   return (
     <>
       <PlantProvider>

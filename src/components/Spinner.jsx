@@ -1,4 +1,8 @@
 function Spinner() {
-  return <div>Spinner</div>
+  return (
+    <div className='loadngSpinnerContainer'>
+      <div className='loadingSpinner'></div>
+    </div>
+  )
 }
 export default Spinner
