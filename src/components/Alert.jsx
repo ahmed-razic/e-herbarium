@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react'
 import AlertContext from '../context/alert/AlertContext'
-import { ReactComponent as AlertIcon } from '../assets/svg/alert.svg'
+import { ReactComponent as AlertIcon } from '../assets/svg/alertIcon.svg'
 
 function Alert() {
   const { alert, setAlert } = useContext(AlertContext)

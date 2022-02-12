@@ -8,24 +8,30 @@ function Navbar({ title }) {
       <div className='container mx-auto'>
         <div className='flex-none px-2 mx-2'>
           <IoFlowerSharp className='inline pr-2 text-5xl' fill='yellow' />
-          <Link to='/' className='text-3xl  font-bold align-middle'>
+          <Link to='/' className='text-2xl  font-bold align-middle'>
             {title}
           </Link>
         </div>
 
         <div className='flex-1 px-2 mx-2'>
           <div className='flex justify-end'>
-            <Link to='/sign-up' className='btn btn-ghost btn-sm rounded-btn'>
+            <Link
+              to='/sign-up'
+              className='btn btn-ghost btn-sm rounded-btn text-base'
+            >
               Sign-up
             </Link>
-            <Link to='/sign-in' className='btn btn-ghost btn-sm rounded-btn'>
+            <Link
+              to='/sign-in'
+              className='btn btn-ghost btn-sm rounded-btn text-base'
+            >
               Sign-in
             </Link>
-            <Link to='/' className='btn btn-ghost btn-sm rounded-btn'>
-              Home
-            </Link>
-            <Link to='/about' className='btn btn-ghost btn-sm rounded-btn'>
-              About
+            <Link
+              to='/profile'
+              className='btn btn-ghost btn-sm rounded-btn text-base'
+            >
+              Profile
             </Link>
           </div>
         </div>
