@@ -1,4 +1,4 @@
 function Search() {
-  return <div>Search</div>
+  return <div>Search Plants</div>
 }
 export default Search

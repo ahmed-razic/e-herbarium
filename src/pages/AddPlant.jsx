@@ -1,4 +1,4 @@
 function AddPlant() {
-  return <div>AddPlant</div>
+  return <div>Add Plant</div>
 }
 export default AddPlant

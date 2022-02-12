@@ -37,7 +37,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  height: 85px;
+  height: 100px;
   background-color: #00cc66;
   z-index: 1000;
   display: flex;
@@ -69,7 +69,7 @@
 .footerListItemName,
 .footerListItemNameActive {
   margin-top: 0.25rem;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #2c2c2c;
 }
