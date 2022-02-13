@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { AlertProvider } from './context/alert/AlertContext'
+import { PlantProvider } from './context/plant/PlantContext'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import SignIn from './pages/SignIn'
@@ -14,8 +16,6 @@ import NotFound from './pages/NotFound'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import PrivateRoute from './components/PrivateRoute'
-import { AlertProvider } from './context/alert/AlertContext'
-import { PlantProvider } from './context/plant/PlantContext'
 
 function App() {
   return (
@@ -38,6 +38,7 @@ function App() {
               <Route path='/about' element={<About />} />
               <Route path='/notFound' element={<NotFound />} />
               <Route path='/*' element={<NotFound />} />
+              <Route path='/contact/:collectorId' element={<Contact />} />
             </Routes>
             <Footer />
           </Router>

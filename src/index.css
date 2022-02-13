@@ -630,13 +630,13 @@ button {
   font-weight: 600;
 }
 
-.contactLandlord {
+.contactCollector {
   margin-top: 2rem;
   display: flex;
   align-items: center;
 }
 
-.landlordName {
+.collectorName {
   font-weight: 600;
   font-size: 1.2rem;
 }
