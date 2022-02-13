@@ -46,7 +46,7 @@ function Footer() {
                   : 'footerListItemName'
               }
             >
-              Search Plants
+              Search
             </p>
           </li>
           <li className='footerListItem' onClick={() => navigate('/add-plant')}>

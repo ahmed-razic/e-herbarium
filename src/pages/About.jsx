@@ -6,7 +6,7 @@ function About() {
         e-Herbarium is a small web page for students and hobby botanists.
         Provides capabilities to store images of collected flora and all other
         important data (collector's name, time, date and geolocation,
-        description...). Secure User Authorization and data storage is done
+        description...). Secure User Authorization and Data Storage is done
         using Google Firebase cloud service. Connection to NatureServe database
         is provided for purpose of finding more information about plants.
       </p>
@@ -18,7 +18,7 @@ function About() {
             target='_blank'
             rel='noreferrer'
           >
-            NatureServe Explorer, Arlington, Virginia.
+            NatureServe Explorer.
           </a>
         </strong>
       </p>
