@@ -1,6 +1,6 @@
 function About() {
   return (
-    <div className='container mx-auto px-6'>
+    <div className='pageContainer mx-auto px-6'>
       <h1 className='text-6xl mb-10 '>e-Herbarium</h1>
       <p className='text-2xl font-light text-justify mb-10'>
         e-Herbarium is a small web page for students and hobby botanists.

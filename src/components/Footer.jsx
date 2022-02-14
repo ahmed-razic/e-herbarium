@@ -19,7 +19,7 @@ function Footer() {
         <ul className='footerListItems'>
           <li className='footerListItem' onClick={() => navigate('/')}>
             <HomeIcon
-              fill={pathMatchRoute('/') ? '#ffffff' : '#2c2c2c'}
+              fill={pathMatchRoute('/') ? '#4fcc4f' : '#ffffff'}
               width='36px'
               height='36px'
             />
@@ -35,7 +35,7 @@ function Footer() {
           </li>
           <li className='footerListItem' onClick={() => navigate('/search')}>
             <SearchIcon
-              fill={pathMatchRoute('/search') ? '#ffffff' : '#2c2c2c'}
+              fill={pathMatchRoute('/search') ? '#4fcc4f' : '#ffffff'}
               width='36px'
               height='36px'
             />
@@ -51,7 +51,7 @@ function Footer() {
           </li>
           <li className='footerListItem' onClick={() => navigate('/add-plant')}>
             <FlowerIcon
-              fill={pathMatchRoute('/add-plant') ? '#ffffff' : '#2c2c2c'}
+              fill={pathMatchRoute('/add-plant') ? '#4fcc4f' : '#ffffff'}
               width='36px'
               height='36px'
             />
@@ -67,7 +67,7 @@ function Footer() {
           </li>
           <li className='footerListItem' onClick={() => navigate('/about')}>
             <AboutIcon
-              fill={pathMatchRoute('/about') ? '#ffffff' : '#2c2c2c'}
+              fill={pathMatchRoute('/about') ? '#4fcc4f' : '#ffffff'}
               width='36px'
               height='36px'
             />

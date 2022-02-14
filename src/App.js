@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { AlertProvider } from './context/alert/AlertContext'
 import { PlantProvider } from './context/plant/PlantContext'
@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp'
 import Contact from './pages/Contact'
 import ForgotPassword from './pages/ForgotPassword'
 import About from './pages/About'
+import WhatIsHerbarium from './pages/WhatIsHerbarium'
 import Search from './pages/Search'
 import AddPlant from './pages/AddPlant'
 import NotFound from './pages/NotFound'
@@ -31,6 +32,7 @@ function App() {
               </Route>
               <Route path='/sign-in' element={<SignIn />} />
               <Route path='/sign-up' element={<SignUp />} />
+              <Route path='/what-is-herbarium' element={<WhatIsHerbarium />} />
               <Route path='/add-plant' element={<AddPlant />} />
               <Route path='/search' element={<Search />} />
               <Route path='/contact' element={<Contact />} />

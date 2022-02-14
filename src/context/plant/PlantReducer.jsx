@@ -1,9 +1,9 @@
 const plantReducer = (state, action) => {
   switch (action.type) {
-    case 'GET_PLANT':
+    case 'GET_PLANTS':
       return {
         ...state,
-        plant: action.payload,
+        plants: action.payload,
         loading: false,
       }
     case 'SET_LOADING':
@@ -11,10 +11,10 @@ const plantReducer = (state, action) => {
         ...state,
         loading: true,
       }
-    case 'CLEAR_PLANT':
+    case 'CLEAR_PLANTS':
       return {
         ...state,
-        plant: {},
+        plants: [],
         loading: false,
       }
     default:

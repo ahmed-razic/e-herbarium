@@ -10,13 +10,13 @@ function Navbar({ title }) {
     }
   }
   return (
-    <nav className='navbar mb-12 shadow-lg bg-[#00cc66] text-neutral-content'>
+    <nav className='navbar shadow-lg bg-[#2c2b2b] text-neutral-content'>
       <div className='container mx-auto'>
         <div className='flex-none px-2 mx-2'>
-          <IoFlowerSharp className='inline pr-2 text-5xl' fill='yellow' />
+          <IoFlowerSharp className='inline pr-2 text-5xl' fill='#4fcc4f' />
           <Link
             to='/'
-            className='text-2xl text-[yellow] font-bold align-middle'
+            className='text-2xl text-[#4fcc4f] font-bold align-middle'
           >
             {title}
           </Link>
@@ -26,24 +26,24 @@ function Navbar({ title }) {
           <div className='flex justify-end '>
             <Link
               to='/sign-up'
-              className={`btn btn-ghost btn-sm rounded-btn text-base text-${
-                pathMatchRoute('/sign-up') ? '[#ffffff]' : '[#2c2c2c]'
+              className={`btn btn-sm rounded-btn text-sm mr-4 bg-[#2c2b2b] text-${
+                pathMatchRoute('/sign-up') ? '[#4fcc4f]' : '[#ffffff]'
               }`}
             >
               Sign-up
             </Link>
             <Link
               to='/sign-in'
-              className={`btn btn-ghost btn-sm rounded-btn text-base text-${
-                pathMatchRoute('/sign-in') ? '[#ffffff]' : '[#2c2c2c]'
+              className={`btn btn-sm rounded-btn text-sm mr-4 bg-[#2c2b2b] text-${
+                pathMatchRoute('/sign-in') ? '[#4fcc4f]' : '[#ffffff]'
               }`}
             >
               Sign-in
             </Link>
             <Link
               to='/profile'
-              className={`btn btn-ghost btn-sm rounded-btn text-base text-${
-                pathMatchRoute('/profile') ? '[#ffffff]' : '[#2c2c2c]'
+              className={`btn btn-sm rounded-btn text-sm mr-4 bg-[#2c2b2b] text-${
+                pathMatchRoute('/profile') ? '[#4fcc4f]' : '[#ffffff]'
               }`}
             >
               Profile

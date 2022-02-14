@@ -8,22 +8,28 @@ const plants = axios.create({
   },
 })
 
-export const getData = async () => {
+export const searchPlants = async (text) => {
   const data = JSON.stringify({
     criteriaType: 'species',
     textCriteria: [
       {
-        paramType: 'quickSearch',
-        searchToken: 'salamander',
+        paramType: 'textSearch',
+        searchToken: text,
+        matchAgainst: 'primaryCommonName',
+        operator: 'similarTo',
       },
     ],
-    statusCriteria: [],
+    statusCriteria: [
+      {
+        paramType: 'globalRank',
+        globalRank: 'G1',
+      },
+    ],
     locationCriteria: [],
     pagingOptions: {
-      page: null,
-      recordsPerPage: null,
+      page: 0,
+      recordsPerPage: 9,
     },
-    recordSubtypeCriteria: [],
     modifiedSince: null,
     locationOptions: null,
     classificationOptions: null,
@@ -33,9 +39,8 @@ export const getData = async () => {
   try {
     const response = await plants.post('/speciesSearch', data)
     if (response.status === 200) {
-      console.log(response.data.results[0].primaryCommonName)
       console.log('successfully retrieved data')
-      return true
+      return response.data.results
     }
     return false
   } catch (err) {
