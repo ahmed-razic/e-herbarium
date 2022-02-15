@@ -11,6 +11,8 @@ import Contact from './pages/Contact'
 import ForgotPassword from './pages/ForgotPassword'
 import About from './pages/About'
 import WhatIsHerbarium from './pages/WhatIsHerbarium'
+import Herbarium from './pages/Herbarium'
+import Plant from './pages/Plant'
 import Search from './pages/Search'
 import AddPlant from './pages/AddPlant'
 import NotFound from './pages/NotFound'
@@ -33,6 +35,8 @@ function App() {
               <Route path='/sign-in' element={<SignIn />} />
               <Route path='/sign-up' element={<SignUp />} />
               <Route path='/what-is-herbarium' element={<WhatIsHerbarium />} />
+              <Route path='/herbarium' element={<Herbarium />} />
+              <Route path='/plant/:id' element={<Plant />} />
               <Route path='/add-plant' element={<AddPlant />} />
               <Route path='/search' element={<Search />} />
               <Route path='/contact' element={<Contact />} />

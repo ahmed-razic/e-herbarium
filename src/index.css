@@ -456,43 +456,33 @@ button {
   border-radius: 1.5rem;
   object-fit: cover;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .categoryListingImg {
     width: 19%;
-    height: 217px;
+    height: 50%;
   }
 }
 
 .categoryListingDetails {
   width: 65%;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .categoryListingDetails {
     width: 79%;
   }
 }
 
-.categoryListingLocation {
+.categoryListingName {
   font-weight: 600;
   font-size: 0.9rem;
   opacity: 0.8;
   margin-bottom: 0;
 }
 
-.categoryListingName {
+.categoryListingMainName {
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin: 0;
-}
-
-.categoryListingPrice {
-  margin-top: 0.5rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #00cc66;
-  margin-bottom: 0;
-  display: flex;
-  align-items: center;
 }
 
 .categoryListingInfoDiv {

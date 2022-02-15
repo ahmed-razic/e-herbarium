@@ -12,7 +12,16 @@ function PlantItem({
         <div>
           <div className='flex gap-2'>
             <h2>Name:</h2>
-            <p className='text-[green] font-bold'>{primaryCommonName}</p>
+            <p className='text-[#4fcc4f] font-bold'>
+              <a
+                href={speciesUrl}
+                target='_blank'
+                rel='noreferrer'
+                className='text-[#4fcc4f] font-bold'
+              >
+                {primaryCommonName}
+              </a>
+            </p>
           </div>
           <div className='flex gap-2'>
             <h2>ScientificName:</h2>
@@ -21,18 +30,6 @@ function PlantItem({
           <div className='flex gap-2'>
             <h2>Global Ranking:</h2>
             <p>{gRank}</p>
-          </div>
-          <div className='flex gap-2'>
-            <h2>
-              <a
-                href={speciesUrl}
-                target='_blank'
-                rel='noreferrer'
-                className='text-[green] font-bold'
-              >
-                Find out More
-              </a>
-            </h2>
           </div>
         </div>
       </div>

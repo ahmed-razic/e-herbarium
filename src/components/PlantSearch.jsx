@@ -42,7 +42,7 @@ function PlantSearch() {
                 />
                 <button
                   type='submit'
-                  className='absolute top-0 right-0 rounded-l-none w-36 btn btn-1xl bg-[green] rounded-full'
+                  className='absolute top-0 right-0 rounded-l-none w-36 btn btn-1xl bg-[#4fcc4f] rounded-full'
                 >
                   Find
                 </button>
@@ -54,7 +54,7 @@ function PlantSearch() {
           <div>
             <button
               onClick={() => dispatch({ type: 'CLEAR_PLANTS' })}
-              className='btn btn-1xl btn bg-[green]'
+              className='btn btn-1xl btn bg-[#4fcc4f]'
             >
               Clear
             </button>
