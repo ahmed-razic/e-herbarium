@@ -18,13 +18,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
           <strong> {listing.commonName}</strong>
         </p>
         <p className='categoryListingName'>
-          Family: <strong>{listing.family}</strong>
-        </p>
-        <p className='categoryListingName'>
-          Genus: <strong>{listing.genus}</strong>
-        </p>
-        <p className='categoryListingName'>
-          Species: <strong>{listing.species}</strong>
+          Scientific name: <strong>{listing.scientificName}</strong>
         </p>
         <p className='categoryListingName'>
           Location: <strong>{listing.location}</strong>
