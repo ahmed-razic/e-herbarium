@@ -1,6 +1,3 @@
-import { Link } from 'react-router-dom'
-import { FaHome } from 'react-icons/fa'
-
 function PlantItem({
   plant: { primaryCommonName, scientificName, gRank, nsxUrl },
 }) {

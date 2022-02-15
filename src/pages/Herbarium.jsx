@@ -1,6 +1,4 @@
-import shareIcon from '../assets/svg/shareIcon.svg'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import {
   collection,
   getDocs,
@@ -57,7 +55,7 @@ function Herbarium() {
 
       const lastVisible = docsSnap.docs[docsSnap.docs.length - 1]
       setLastFetchedPlant(lastVisible)
-      const listings = []
+      const plants = []
 
       docsSnap.forEach((doc) => {
         return plants.push({

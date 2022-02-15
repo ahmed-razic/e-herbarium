@@ -65,9 +65,6 @@ function Plant({ onDelete, onEdit }) {
             Location: <strong>{listing.location}</strong>
           </p>
           <p className='categoryListingName'>
-            Location Description: <strong>{listing.locationDescription}</strong>
-          </p>
-          <p className='categoryListingName'>
             Longitude: <strong>{listing.geolocation.longitude}</strong> <br />
             Latitude: <strong>{listing.geolocation.latitude}</strong>
           </p>
