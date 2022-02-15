@@ -11,102 +11,98 @@ import {
 import { db } from '../firebase.config'
 import { toast } from 'react-toastify'
 import Spinner from '../components/Spinner'
-import ListingItem from '../components/ListingItem'
-import Slider from '../components/Slider'
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import HerbariumItem from '../components/HerbariumItem'
 import 'swiper/swiper-bundle.css'
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
 
 function Herbarium() {
-  const [listings, setListings] = useState(null)
+  const [plants, setPlants] = useState(null)
   const [loading, setLoading] = useState(null)
-  const [lastFetchedListing, setLastFetchedListing] = useState(null)
+  const [lastFetchedPlant, setLastFetchedPlant] = useState(null)
 
   useEffect(() => {
-    const fetchListings = async () => {
+    const fetchPlants = async () => {
       try {
-        const listingsRef = collection(db, 'plants')
-        const docsSnap = await getDocs(listingsRef)
+        const plantsRef = collection(db, 'plants')
+        const docsSnap = await getDocs(plantsRef)
 
         const lastVisible = docsSnap.docs[docsSnap.docs.length - 1]
-        setLastFetchedListing(lastVisible)
+        setLastFetchedPlant(lastVisible)
 
-        const listings = []
+        const plants = []
 
         docsSnap.forEach((doc) => {
-          return listings.push({
+          return plants.push({
             id: doc.id,
             data: doc.data(),
           })
         })
-        setListings(listings)
+        setPlants(plants)
         setLoading(false)
       } catch (error) {
-        toast.error('Could not fetch listings')
+        toast.error('Could not fetch plants')
       }
     }
 
-    fetchListings()
+    fetchPlants()
   }, [])
 
-  //Pagination - Load more listings
+  //Pagination - Load more plants
 
-  const onFetchMoreListings = async () => {
+  const onFetchMorePlants = async () => {
     try {
-      const listingsRef = collection(db, 'listings')
+      const plantsRef = collection(db, 'plants')
 
-      const q = query(listingsRef, startAfter(lastFetchedListing), limit(10))
+      const q = query(plantsRef, startAfter(lastFetchedPlant), limit(10))
       const docsSnap = await getDocs(q)
 
       const lastVisible = docsSnap.docs[docsSnap.docs.length - 1]
-      setLastFetchedListing(lastVisible)
+      setLastFetchedPlant(lastVisible)
       const listings = []
 
       docsSnap.forEach((doc) => {
-        return listings.push({
+        return plants.push({
           id: doc.id,
           data: doc.data(),
         })
       })
-      setListings((prevState) => [...prevState, ...listings])
+      setPlants((prevState) => [...prevState, ...plants])
       setLoading(false)
     } catch (error) {
-      toast.error('Could not fetch listings')
+      toast.error('Could not fetch plants')
     }
   }
 
   return (
     <div className='category'>
       <header>
-        <p className='pageHeader'>Plants</p>
+        <p className='pageHeader mb-4'>All Plants in Herbarium</p>
       </header>
 
       {loading ? (
         <Spinner />
-      ) : listings && listings.length > 0 ? (
+      ) : plants && plants.length > 0 ? (
         <>
           <main>
-            <ul className='categoryListings'>
-              {listings.map((listing) => (
-                <ListingItem
-                  listing={listing.data}
-                  id={listing.id}
-                  key={listing.id}
+            <ul className='categoryPlants'>
+              {plants.map((plant) => (
+                <HerbariumItem
+                  plant={plant.data}
+                  id={plant.id}
+                  key={plant.id}
                 />
               ))}
             </ul>
           </main>
           <br />
           <br />
-          {lastFetchedListing && (
-            <p className='loadMore' onClick={onFetchMoreListings}>
+          {lastFetchedPlant && (
+            <p className='loadMore' onClick={onFetchMorePlants}>
               Load More
             </p>
           )}
         </>
       ) : (
-        <p>No listings</p>
+        <p>No plants</p>
       )}
     </div>
   )

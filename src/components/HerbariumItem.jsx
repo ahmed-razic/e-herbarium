@@ -2,36 +2,35 @@ import { Link } from 'react-router-dom'
 import { ReactComponent as DeleteIcon } from '../assets/svg/deleteIcon.svg'
 import { ReactComponent as EditIcon } from '../assets/svg/editIcon.svg'
 
-function ListingItem({ listing, id, onDelete, onEdit }) {
-  console.log(id)
+function HerbariumItem({ plant, id, onDelete, onEdit }) {
   return (
     <li className='categoryListing'>
       <Link to={`/plant/${id}`} className='categoryListingLink'>
         <img
-          src={listing.imgUrls[0]}
+          src={plant.imgUrls[0]}
           alt='plant_image'
           className='categoryListingImg'
         />
       </Link>
       <div className='categoryListingDetails'>
         <p className='categoryListingMainName'>
-          <strong> {listing.commonName}</strong>
+          <strong> {plant.commonName}</strong>
         </p>
         <p className='categoryListingName'>
-          Scientific name: <strong>{listing.scientificName}</strong>
+          Scientific name: <strong>{plant.scientificName}</strong>
         </p>
         <p className='categoryListingName'>
-          Location: <strong>{listing.location}</strong>
+          Location: <strong>{plant.location}</strong>
         </p>
         <p className='categoryListingName'>
-          Collector: <strong>{listing.collectorName}</strong>
+          Collector: <strong>{plant.collectorName}</strong>
         </p>
       </div>
       {onDelete && (
         <DeleteIcon
           className='removeIcon'
           fill='rgb(231, 76, 60)'
-          onClick={() => onDelete(listing.id, listing.name)}
+          onClick={() => onDelete(plant.id, plant.name)}
         />
       )}
 
@@ -40,4 +39,4 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
   )
 }
 
-export default ListingItem
+export default HerbariumItem

@@ -46,23 +46,23 @@ function Footer() {
                   : 'footerListItemName'
               }
             >
-              Search
+              NatureServe
             </p>
           </li>
-          <li className='footerListItem' onClick={() => navigate('/add-plant')}>
+          <li className='footerListItem' onClick={() => navigate('/herbarium')}>
             <FlowerIcon
-              fill={pathMatchRoute('/add-plant') ? '#4fcc4f' : '#ffffff'}
+              fill={pathMatchRoute('/herbarium') ? '#4fcc4f' : '#ffffff'}
               width='36px'
               height='36px'
             />
             <p
               className={
-                pathMatchRoute('/add-plant')
+                pathMatchRoute('/herbarium')
                   ? 'footerListItemNameActive'
                   : 'footerListItemName'
               }
             >
-              Add Plant
+              e-Herbarium
             </p>
           </li>
           <li className='footerListItem' onClick={() => navigate('/about')}>

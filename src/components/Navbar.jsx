@@ -1,9 +1,12 @@
 import { IoFlowerSharp } from 'react-icons/io5'
 import { Link, useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { useAuthStatus } from '../hooks/useAuthStatus'
 
 function Navbar({ title }) {
+  const { loggedIn, checkingStatus } = useAuthStatus()
   const location = useLocation()
+
   function pathMatchRoute(route) {
     if (route === location.pathname) {
       return true
@@ -24,22 +27,27 @@ function Navbar({ title }) {
 
         <div className='flex-1 px-2 mx-2 align-middle'>
           <div className='flex justify-end '>
-            <Link
-              to='/sign-up'
-              className={`btn btn-sm rounded-btn text-sm mr-4 bg-[#2c2b2b] text-${
-                pathMatchRoute('/sign-up') ? '[#4fcc4f]' : '[#ffffff]'
-              }`}
-            >
-              Sign-up
-            </Link>
-            <Link
-              to='/sign-in'
-              className={`btn btn-sm rounded-btn text-sm mr-4 bg-[#2c2b2b] text-${
-                pathMatchRoute('/sign-in') ? '[#4fcc4f]' : '[#ffffff]'
-              }`}
-            >
-              Sign-in
-            </Link>
+            {!loggedIn && (
+              <>
+                <Link
+                  to='/sign-up'
+                  className={`btn btn-sm rounded-btn text-sm mr-4 bg-[#2c2b2b] text-${
+                    pathMatchRoute('/sign-up') ? '[#4fcc4f]' : '[#ffffff]'
+                  }`}
+                >
+                  Sign-up
+                </Link>
+                <Link
+                  to='/sign-in'
+                  className={`btn btn-sm rounded-btn text-sm mr-4 bg-[#2c2b2b] text-${
+                    pathMatchRoute('/sign-in') ? '[#4fcc4f]' : '[#ffffff]'
+                  }`}
+                >
+                  Sign-in
+                </Link>
+              </>
+            )}
+
             <Link
               to='/profile'
               className={`btn btn-sm rounded-btn text-sm mr-4 bg-[#2c2b2b] text-${

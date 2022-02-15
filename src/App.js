@@ -13,7 +13,7 @@ import About from './pages/About'
 import WhatIsHerbarium from './pages/WhatIsHerbarium'
 import Herbarium from './pages/Herbarium'
 import Plant from './pages/Plant'
-import Search from './pages/Search'
+import SearchNatureServe from './pages/SearchNatureServe'
 import AddPlant from './pages/AddPlant'
 import NotFound from './pages/NotFound'
 import Footer from './components/Footer'
@@ -38,7 +38,7 @@ function App() {
               <Route path='/herbarium' element={<Herbarium />} />
               <Route path='/plant/:id' element={<Plant />} />
               <Route path='/add-plant' element={<AddPlant />} />
-              <Route path='/search' element={<Search />} />
+              <Route path='/search' element={<SearchNatureServe />} />
               <Route path='/contact' element={<Contact />} />
               <Route path='/forgot-password' element={<ForgotPassword />} />
               <Route path='/about' element={<About />} />

@@ -1,7 +1,7 @@
 import PlantResults from '../components/PlantResults'
 import PlantSearch from '../components/PlantSearch'
 
-function Search() {
+function SearchNatureServe() {
   return (
     <div className='pageContainer'>
       <PlantSearch />
@@ -9,4 +9,4 @@ function Search() {
     </div>
   )
 }
-export default Search
+export default SearchNatureServe

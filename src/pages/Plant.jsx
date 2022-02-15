@@ -20,7 +20,6 @@ function Plant({ onDelete, onEdit }) {
   const auth = getAuth()
   const params = useParams()
 
-  console.log(params.id)
   useEffect(() => {
     const fetchListing = async () => {
       const docRef = doc(db, 'plants', params.id)
@@ -40,6 +39,7 @@ function Plant({ onDelete, onEdit }) {
 
   return (
     <main className='pageContainer'>
+      <div className='plantTitle mb-4'>Plant</div>
       <div className='categoryListing'>
         <div className='categoryListingLink'>
           <img
@@ -93,9 +93,9 @@ function Plant({ onDelete, onEdit }) {
 
       {listing && (
         <>
-          <p className='exploreHeading'>Herbarium photos</p>
+          <p className='herbariumPhotosTile mb-4'>Herbarium photos</p>
 
-          <Swiper slidesPerView={1}>
+          <Swiper slidesPerView={1} pagination={{ clickable: true }}>
             {listing.imgUrls.map((url, index) => (
               <SwiperSlide key={index} className='swiper-container'>
                 <div
@@ -128,7 +128,7 @@ function Plant({ onDelete, onEdit }) {
 
       {shareLinkCopied && <p className='linkCopied'>Link Copied!</p>}
 
-      <p className='listingLocationTitle mb-4'>Place of collection</p>
+      <p className='listingLocationTitle mb-4'>Location of collection</p>
       <div className='leafletContainer'>
         <MapContainer
           style={{ height: '100%', width: '100%' }}
