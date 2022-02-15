@@ -110,7 +110,6 @@ function AddPlant() {
       geolocation.longitude = longitude
     } */
 
-    // Store image in firebase
     const storeImage = async (image) => {
       return new Promise((resolve, reject) => {
         const storage = getStorage()
