@@ -17,7 +17,7 @@ function EditPlant() {
   //eslint-disable-next-line
   const [geolocationEnabled, setGeolocationEnabled] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [plant, setPlant] = useState()
+  const [plant, setPlant] = useState(false)
   const [formData, setFormData] = useState({
     altitude: 300,
     collectorName: '',
@@ -64,9 +64,8 @@ function EditPlant() {
 
   useEffect(() => {
     setLoading(true)
-
     const fetchPlant = async () => {
-      const docRef = doc(db, 'plants', params.id)
+      const docRef = doc(db, 'plants', params.plantId)
       const docSnap = await getDoc(docRef)
       if (docSnap.exists()) {
         setPlant(docSnap.data())
@@ -102,14 +101,13 @@ function EditPlant() {
 
     setLoading(true)
 
-    if (images.length > 6) {
+    if (images.length > 5) {
       setLoading(false)
-      toast.error('Max 6 images')
+      toast.error('You can enter maximum of 5 images')
       return
     }
 
     let geolocation = {}
-    let location
 
     geolocation.latitude = latitude
     geolocation.longitude = longitude
@@ -194,11 +192,10 @@ function EditPlant() {
       timestamp: serverTimestamp(),
     }
 
-    formDataCopy.location = location
     delete formDataCopy.images
     delete formDataCopy.location
 
-    const docRef = doc(db, 'plants', params.id)
+    const docRef = doc(db, 'plants', params.plantId)
     await updateDoc(docRef, formDataCopy)
     setLoading(false)
     toast.success('Plant saved in database')

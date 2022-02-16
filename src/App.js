@@ -39,7 +39,7 @@ function App() {
               <Route path='/herbarium' element={<Herbarium />} />
               <Route path='/plant/:id' element={<Plant />} />
               <Route path='/add-plant' element={<AddPlant />} />
-              <Route path='/edit-plant/:id' element={<EditPlant />} />
+              <Route path='/edit-plant/:plantId' element={<EditPlant />} />
               <Route path='/search' element={<SearchNatureServe />} />
               <Route path='/contact' element={<Contact />} />
               <Route path='/forgot-password' element={<ForgotPassword />} />
