@@ -288,7 +288,7 @@ function AddPlant() {
               <label className='formLabel'>Collector Email</label>
               <input
                 className='formInputSmall'
-                type='text'
+                type='email'
                 id='collectorEmail'
                 value={collectorEmail}
                 onChange={onMutate}

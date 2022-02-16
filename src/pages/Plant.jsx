@@ -62,6 +62,9 @@ function Plant({ onDelete, onEdit }) {
             Genus: <strong>{plant.genus}</strong>
           </p>
           <p className='categoryListingName'>
+            Date: <strong>{plant.timestamp.toDate().toDateString()}</strong>
+          </p>
+          <p className='categoryListingName'>
             Location: <strong>{plant.location}</strong>
           </p>
           <p className='categoryListingName'>

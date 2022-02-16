@@ -54,9 +54,19 @@ function EditPlant() {
   const isMounted = useRef(true)
 
   useEffect(() => {
+    if (plant && plant.userRef !== auth.currentUser.uid) {
+      toast.error(
+        'You cannot edit this plant. Please sign in if this is your input'
+      )
+      navigate('/')
+    }
+  })
+
+  useEffect(() => {
     setLoading(true)
+
     const fetchPlant = async () => {
-      const docRef = doc(db, 'plants', params.plantId)
+      const docRef = doc(db, 'plants', params.id)
       const docSnap = await getDoc(docRef)
       if (docSnap.exists()) {
         setPlant(docSnap.data())
@@ -68,7 +78,7 @@ function EditPlant() {
       }
     }
     fetchPlant()
-  }, [params.plantId, navigate])
+  }, [params.id, navigate])
 
   useEffect(() => {
     if (isMounted) {
@@ -188,7 +198,7 @@ function EditPlant() {
     delete formDataCopy.images
     delete formDataCopy.location
 
-    const docRef = doc(db, 'plants', params.plantId)
+    const docRef = doc(db, 'plants', params.id)
     await updateDoc(docRef, formDataCopy)
     setLoading(false)
     toast.success('Plant saved in database')
@@ -308,7 +318,7 @@ function EditPlant() {
               <label className='formLabel'>Collector Email</label>
               <input
                 className='formInputSmall'
-                type='text'
+                type='email'
                 id='collectorEmail'
                 value={collectorEmail}
                 onChange={onMutate}

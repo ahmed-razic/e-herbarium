@@ -15,6 +15,7 @@ import Herbarium from './pages/Herbarium'
 import Plant from './pages/Plant'
 import SearchNatureServe from './pages/SearchNatureServe'
 import AddPlant from './pages/AddPlant'
+import EditPlant from './pages/EditPlant'
 import NotFound from './pages/NotFound'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
@@ -38,6 +39,7 @@ function App() {
               <Route path='/herbarium' element={<Herbarium />} />
               <Route path='/plant/:id' element={<Plant />} />
               <Route path='/add-plant' element={<AddPlant />} />
+              <Route path='/edit-plant/:id' element={<EditPlant />} />
               <Route path='/search' element={<SearchNatureServe />} />
               <Route path='/contact' element={<Contact />} />
               <Route path='/forgot-password' element={<ForgotPassword />} />
