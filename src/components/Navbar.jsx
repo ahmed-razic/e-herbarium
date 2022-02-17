@@ -1,16 +1,16 @@
-import { useEffect } from 'react';
-import { IoFlowerSharp } from 'react-icons/io5';
-import { Link, useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { useAuthStatus } from '../hooks/useAuthStatus';
+import { IoFlowerSharp } from 'react-icons/io5'
+import { Link, useLocation } from 'react-router-dom'
+import { useAuthStatus } from '../hooks/useAuthStatus'
+import PropTypes from 'prop-types'
 
 function Navbar({ title }) {
-  const { loggedIn, checkingStatus } = useAuthStatus();
-  const location = useLocation();
+  const location = useLocation()
+  const { loggedIn, checkingStatus } = useAuthStatus()
+  console.log(loggedIn)
 
   function pathMatchRoute(route) {
     if (route === location.pathname) {
-      return true;
+      return true
     }
   }
   return (
@@ -61,15 +61,15 @@ function Navbar({ title }) {
         </div>
       </div>
     </nav>
-  );
+  )
 }
 
 Navbar.defaultProps = {
   title: 'e-Herbarium',
-};
+}
 
 Navbar.propTypes = {
   title: PropTypes.string,
-};
+}
 
-export default Navbar;
+export default Navbar

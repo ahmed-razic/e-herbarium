@@ -1,7 +1,7 @@
-import { IoFlowerSharp } from 'react-icons/io5';
-import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { getAuth, updateProfile } from 'firebase/auth';
+import { IoFlowerSharp } from 'react-icons/io5'
+import { useState, useEffect } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import { getAuth, updateProfile } from 'firebase/auth'
 import {
   updateDoc,
   doc,
@@ -11,88 +11,86 @@ import {
   where,
   orderBy,
   deleteDoc,
-} from 'firebase/firestore';
-import { db } from '../firebase.config';
-import { toast } from 'react-toastify';
-import ListingItem from '../components/HerbariumItem';
+} from 'firebase/firestore'
+import { db } from '../firebase.config'
+import { toast } from 'react-toastify'
+import ListingItem from '../components/HerbariumItem'
 
 function Profile() {
-  const [loading, setLoading] = useState(true);
-  const [plants, setPlants] = useState(null);
-  const [changeDetails, setChangeDetails] = useState(false);
-  const auth = getAuth();
+  const [loading, setLoading] = useState(true)
+  const [plants, setPlants] = useState(null)
+  const [changeDetails, setChangeDetails] = useState(false)
+  const auth = getAuth()
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
-  });
+  })
 
-  const { name, email } = formData;
+  const { name, email } = formData
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchUserPlants = async () => {
-      const plantsRef = collection(db, 'plants');
+      const plantsRef = collection(db, 'plants')
       const q = query(
         plantsRef,
         where('userRef', '==', auth.currentUser.uid),
         orderBy('timestamp', 'desc')
-      );
-      const querySnap = await getDocs(q);
-      let plants = [];
+      )
+      const querySnap = await getDocs(q)
+      let plants = []
 
       querySnap.forEach((doc) => {
         return plants.push({
           id: doc.id,
           data: doc.data(),
-        });
-      });
+        })
+      })
 
-      setPlants(plants);
-      setLoading(false);
-    };
-    fetchUserPlants();
-  }, [auth.currentUser.uid]);
+      setPlants(plants)
+      setLoading(false)
+    }
+    fetchUserPlants()
+  }, [auth.currentUser.uid])
 
   const onLogout = () => {
-    auth.signOut();
-    //see is loggedIn false
-    setLoading(false);
-    navigate('/');
-  };
+    auth.signOut()
+    navigate('/')
+  }
 
   const onSubmit = async () => {
     try {
       if (auth.currentUser.displayName !== name) {
-        await updateProfile(auth.currentUser, { displayName: name });
+        await updateProfile(auth.currentUser, { displayName: name })
       }
 
-      const userRef = doc(db, 'users', auth.currentUser.uid);
-      await updateDoc(userRef, { name: name });
+      const userRef = doc(db, 'users', auth.currentUser.uid)
+      await updateDoc(userRef, { name: name })
     } catch (error) {
-      toast.error('Profile details could not be updated');
+      toast.error('Profile details could not be updated')
     }
-  };
+  }
 
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
-    }));
-  };
+    }))
+  }
 
   const onDelete = async (plantId) => {
     if (window.confirm('Are you sure you wont to delete?')) {
-      await deleteDoc(doc(db, 'plants', plantId));
-      const updatedPlants = plants.filter((plant) => plant.id !== plantId);
-      setPlants(updatedPlants);
-      toast.success('You deleted plant');
+      await deleteDoc(doc(db, 'plants', plantId))
+      const updatedPlants = plants.filter((plant) => plant.id !== plantId)
+      setPlants(updatedPlants)
+      toast.success('You deleted plant')
     }
-  };
+  }
 
   const onEdit = (plantId) => {
-    navigate(`/edit-plant/${plantId}`);
-  };
+    navigate(`/edit-plant/${plantId}`)
+  }
 
   return (
     <div className='profile'>
@@ -109,8 +107,8 @@ function Profile() {
           <p
             className='changePersonalDetails'
             onClick={() => {
-              changeDetails && onSubmit();
-              setChangeDetails((prevState) => !prevState);
+              changeDetails && onSubmit()
+              setChangeDetails((prevState) => !prevState)
             }}
           >
             {changeDetails ? 'Done' : 'Change'}
@@ -164,7 +162,7 @@ function Profile() {
         )}
       </main>
     </div>
-  );
+  )
 }
 
-export default Profile;
+export default Profile

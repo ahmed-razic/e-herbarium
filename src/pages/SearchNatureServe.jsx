@@ -1,11 +1,11 @@
-import PlantResults from '../components/PlantResults';
-import PlantSearch from '../components/PlantSearch';
+import PlantResults from '../components/PlantResults'
+import PlantSearch from '../components/PlantSearch'
 
 function SearchNatureServe() {
   return (
     <div className='pageContainer'>
       <p className='pageHeader mb-4'>NatureServe Explorer</p>
-      <p className='mb-10'>
+      <p className='mb-10 text-justify'>
         <strong className='text-[#4fcc4f]'>
           <a
             href='https://explorer.natureserve.org/'
@@ -23,6 +23,6 @@ function SearchNatureServe() {
       <PlantSearch />
       <PlantResults />
     </div>
-  );
+  )
 }
-export default SearchNatureServe;
+export default SearchNatureServe
