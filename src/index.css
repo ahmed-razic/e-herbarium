@@ -181,7 +181,7 @@ button {
   .listingDetails,
   .category,
   .explore {
-    margin: 7rem 8rem;
+    margin: 3rem 6rem;
   }
 }
 
@@ -649,14 +649,14 @@ button {
   justify-content: space-between;
   align-items: center;
 }
-
+.addPlant,
 .logOut {
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
-  background-color: #00cc66;
+  background-color: #4fcc4f;
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
 }
