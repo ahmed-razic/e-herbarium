@@ -5,14 +5,14 @@ import PropTypes from 'prop-types'
 
 function Navbar({ title }) {
   const location = useLocation()
-  const { loggedIn, checkingStatus } = useAuthStatus()
-  console.log(loggedIn)
+  const { loggedIn } = useAuthStatus()
 
   function pathMatchRoute(route) {
     if (route === location.pathname) {
       return true
     }
   }
+
   return (
     <nav className='navbar shadow-lg bg-[#2c2b2b] text-neutral-content'>
       <div className='container mx-auto'>
