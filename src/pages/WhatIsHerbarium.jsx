@@ -14,40 +14,34 @@ function WhatIsHerbarium() {
         “dictionaries” of the plant kingdom and provide comparative material
         that is indispensable for studies in plant taxonomy and systematics.
       </p>
-      <p className='text-lg text-gray-700 mt-4'>
-        Useful Links:
-        <ul>
-          <li className='ml-10 mb-3 mt-3'>
-            <a
-              href='https://about.worldfloraonline.org//'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <strong>World Flora Online</strong>
-            </a>
-          </li>
-          <li className='ml-10 mb-3'>
-            <a
-              href='https://www.rbge.org.uk//'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <strong>Royal Botanical Garden</strong>
-            </a>
-          </li>
-          <li className='ml-10 mb-3'>
-            <a
-              href='https://explorer.natureserve.org/'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <strong>NatureServe Explorer</strong>
-            </a>
-          </li>
-        </ul>
-      </p>
+      <p className='text-lg text-gray-700 mt-4'>Useful Links:</p>
+      <ul>
+        <li className='ml-10 mb-3 mt-3'>
+          <a
+            href='https://about.worldfloraonline.org//'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <strong>World Flora Online</strong>
+          </a>
+        </li>
+        <li className='ml-10 mb-3'>
+          <a href='https://www.rbge.org.uk//' target='_blank' rel='noreferrer'>
+            <strong>Royal Botanical Garden</strong>
+          </a>
+        </li>
+        <li className='ml-10 mb-3'>
+          <a
+            href='https://explorer.natureserve.org/'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <strong>NatureServe Explorer</strong>
+          </a>
+        </li>
+      </ul>
     </div>
-  )
+  );
 }
 
-export default WhatIsHerbarium
+export default WhatIsHerbarium;

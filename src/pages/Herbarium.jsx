@@ -1,74 +1,74 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import {
   collection,
   getDocs,
   query,
   limit,
   startAfter,
-} from 'firebase/firestore'
-import { db } from '../firebase.config'
-import { toast } from 'react-toastify'
-import Spinner from '../components/Spinner'
-import HerbariumItem from '../components/HerbariumItem'
-import 'swiper/swiper-bundle.css'
+} from 'firebase/firestore';
+import { db } from '../firebase.config';
+import { toast } from 'react-toastify';
+import Spinner from '../components/Spinner';
+import HerbariumItem from '../components/HerbariumItem';
+import 'swiper/swiper-bundle.css';
 
 function Herbarium() {
-  const [plants, setPlants] = useState(null)
-  const [loading, setLoading] = useState(null)
-  const [lastFetchedPlant, setLastFetchedPlant] = useState(null)
+  const [plants, setPlants] = useState(null);
+  const [loading, setLoading] = useState(null);
+  const [lastFetchedPlant, setLastFetchedPlant] = useState(null);
 
   useEffect(() => {
     const fetchPlants = async () => {
       try {
-        const plantsRef = collection(db, 'plants')
-        const docsSnap = await getDocs(plantsRef)
+        const plantsRef = collection(db, 'plants');
+        const docsSnap = await getDocs(plantsRef);
 
-        const lastVisible = docsSnap.docs[docsSnap.docs.length - 1]
-        setLastFetchedPlant(lastVisible)
+        const lastVisible = docsSnap.docs[docsSnap.docs.length - 1];
+        setLastFetchedPlant(lastVisible);
 
-        const plants = []
+        const plants = [];
 
         docsSnap.forEach((doc) => {
           return plants.push({
             id: doc.id,
             data: doc.data(),
-          })
-        })
-        setPlants(plants)
-        setLoading(false)
+          });
+        });
+        setPlants(plants);
+        setLoading(false);
       } catch (error) {
-        toast.error('Could not fetch plants')
+        toast.error('Could not fetch plants');
       }
-    }
+    };
 
-    fetchPlants()
-  }, [])
+    fetchPlants();
+  }, []);
 
   //Pagination - Load more plants
 
   const onFetchMorePlants = async () => {
     try {
-      const plantsRef = collection(db, 'plants')
+      const plantsRef = collection(db, 'plants');
 
-      const q = query(plantsRef, startAfter(lastFetchedPlant), limit(10))
-      const docsSnap = await getDocs(q)
+      const q = query(plantsRef, startAfter(lastFetchedPlant), limit(10));
+      const docsSnap = await getDocs(q);
 
-      const lastVisible = docsSnap.docs[docsSnap.docs.length - 1]
-      setLastFetchedPlant(lastVisible)
-      const plants = []
+      const lastVisible = docsSnap.docs[docsSnap.docs.length - 1];
+      setLastFetchedPlant(lastVisible);
+      const plants = [];
 
       docsSnap.forEach((doc) => {
         return plants.push({
           id: doc.id,
           data: doc.data(),
-        })
-      })
-      setPlants((prevState) => [...prevState, ...plants])
-      setLoading(false)
+        });
+      });
+      setPlants((prevState) => [...prevState, ...plants]);
+      setLoading(false);
     } catch (error) {
-      toast.error('Could not fetch plants')
+      toast.error('Could not fetch plants');
     }
-  }
+  };
 
   return (
     <div className='category'>
@@ -103,7 +103,7 @@ function Herbarium() {
         <p>No plants</p>
       )}
     </div>
-  )
+  );
 }
 
-export default Herbarium
+export default Herbarium;

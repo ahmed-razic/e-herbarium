@@ -56,6 +56,8 @@ function Profile() {
 
   const onLogout = () => {
     auth.signOut();
+    //see is loggedIn false
+    setLoading(false);
     navigate('/');
   };
 
@@ -136,7 +138,10 @@ function Profile() {
             />
           </form>
         </div>
-        <Link to='/add-plant' className='btn mt-5 bg-[#4fcc4f] border-none'>
+        <Link
+          to='/add-plant'
+          className='btn mt-5 bg-[#4fcc4f] rounded-full border-none'
+        >
           <IoFlowerSharp className='mr-2' size={24} />
           <p>Add plant</p>
         </Link>

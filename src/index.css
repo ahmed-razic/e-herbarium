@@ -54,7 +54,7 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  height: 80px;
+  height: 60px;
   background-color: #2c2b2b;
   z-index: 1000;
   display: flex;
@@ -86,7 +86,7 @@ body {
 .footerListItemName,
 .footerListItemNameActive {
   margin-top: 0.25rem;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: #ffffff;
 }
@@ -503,7 +503,7 @@ button {
   margin: 0 auto;
   text-align: center;
   padding: 0.25rem 0.5rem;
-  background-color: #000000;
+  background-color: #4fcc4f;
   color: #ffffff;
   font-weight: 600;
   border-radius: 1rem;
