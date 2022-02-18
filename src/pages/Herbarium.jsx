@@ -71,7 +71,7 @@ function Herbarium() {
   };
 
   return (
-    <div className='category'>
+    <div className='pageContainer'>
       <header>
         <p className='pageHeader mb-4'>All Plants in Herbarium</p>
       </header>

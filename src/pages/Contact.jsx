@@ -1,35 +1,35 @@
-import { useState, useEffect } from 'react'
-import { useParams, useSearchParams } from 'react-router-dom'
-import { doc, getDoc } from 'firebase/firestore'
-import { db } from '../firebase.config'
-import { toast } from 'react-toastify'
+import { useState, useEffect } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase.config';
+import { toast } from 'react-toastify';
 
 function Contact() {
-  const [message, setMessage] = useState('')
-  const [collector, setCollector] = useState(null)
+  const [message, setMessage] = useState('');
+  const [collector, setCollector] = useState(null);
   //eslint-disable-next-line
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const params = useParams()
+  const params = useParams();
 
   useEffect(() => {
     const getLandlord = async () => {
-      const docRef = doc(db, 'users', params.collectorId)
-      const docSnap = await getDoc(docRef)
+      const docRef = doc(db, 'users', params.collectorId);
+      const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        setCollector(docSnap.data())
+        setCollector(docSnap.data());
       } else {
-        toast.error('Could not get collector data')
+        toast.error('Could not get collector data');
       }
-    }
+    };
 
-    getLandlord()
-  }, [params.collectorId])
+    getLandlord();
+  }, [params.collectorId]);
 
   const onChange = (e) => {
-    setMessage(e.target.value)
-  }
+    setMessage(e.target.value);
+  };
 
   return (
     <div className='pageContainer'>
@@ -72,7 +72,7 @@ function Contact() {
         </main>
       )}
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

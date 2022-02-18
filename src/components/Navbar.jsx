@@ -1,27 +1,24 @@
-import { IoFlowerSharp } from 'react-icons/io5'
-import { Link, useLocation } from 'react-router-dom'
-import { useAuthStatus } from '../hooks/useAuthStatus'
-import PropTypes from 'prop-types'
+import { IoFlowerSharp } from 'react-icons/io5';
+import { Link, useLocation } from 'react-router-dom';
+import { useAuthStatus } from '../hooks/useAuthStatus';
+import PropTypes from 'prop-types';
 
 function Navbar({ title }) {
-  const location = useLocation()
-  const { loggedIn } = useAuthStatus()
+  const location = useLocation();
+  const { loggedIn } = useAuthStatus();
 
   function pathMatchRoute(route) {
     if (route === location.pathname) {
-      return true
+      return true;
     }
   }
 
   return (
     <nav className='navbar shadow-lg bg-[#2c2b2b] text-neutral-content'>
       <div className='container mx-auto'>
-        <div className='flex-none px-2 mx-2'>
-          <IoFlowerSharp className='inline pr-2 text-5xl' fill='#4fcc4f' />
-          <Link
-            to='/'
-            className='text-2xl text-[#4fcc4f] font-bold align-middle'
-          >
+        <div className='flex content-center'>
+          <IoFlowerSharp className='inline pr-2 text-4xl' fill='#4fcc4f' />
+          <Link to='/' className='text-lg text-[#4fcc4f] font-bold pt-1'>
             {title}
           </Link>
         </div>
@@ -61,15 +58,15 @@ function Navbar({ title }) {
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
 Navbar.defaultProps = {
   title: 'e-Herbarium',
-}
+};
 
 Navbar.propTypes = {
   title: PropTypes.string,
-}
+};
 
-export default Navbar
+export default Navbar;

@@ -1,51 +1,51 @@
-import { Link, useParams } from 'react-router-dom'
-import { ReactComponent as DeleteIcon } from '../assets/svg/deleteIcon.svg'
-import { ReactComponent as EditIcon } from '../assets/svg/editIcon.svg'
-import { useState, useEffect } from 'react'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/swiper-bundle.css'
-import { getAuth } from 'firebase/auth'
-import { getDoc, doc } from 'firebase/firestore'
-import { db } from '../firebase.config'
-import Spinner from '../components/Spinner'
-import shareIcon from '../assets/svg/shareIcon.svg'
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
+import { Link, useParams } from 'react-router-dom';
+import { ReactComponent as DeleteIcon } from '../assets/svg/deleteIcon.svg';
+import { ReactComponent as EditIcon } from '../assets/svg/editIcon.svg';
+import { useState, useEffect } from 'react';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+import { getAuth } from 'firebase/auth';
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from '../firebase.config';
+import Spinner from '../components/Spinner';
+import shareIcon from '../assets/svg/shareIcon.svg';
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 function Plant({ onDelete, onEdit }) {
-  const [plant, setPlant] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [shareLinkCopied, setShareLinkCopied] = useState(false)
-  const auth = getAuth()
-  const params = useParams()
+  const [plant, setPlant] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [shareLinkCopied, setShareLinkCopied] = useState(false);
+  const auth = getAuth();
+  const params = useParams();
 
   useEffect(() => {
     const fetchPlant = async () => {
-      const docRef = doc(db, 'plants', params.id)
-      const docSnap = await getDoc(docRef)
+      const docRef = doc(db, 'plants', params.id);
+      const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        setPlant(docSnap.data())
-        setLoading(false)
+        setPlant(docSnap.data());
+        setLoading(false);
       }
-    }
-    fetchPlant()
-  }, [])
+    };
+    fetchPlant();
+  }, []);
 
   if (loading) {
-    return <Spinner />
+    return <Spinner />;
   }
 
   return (
-    <main className='pageContainer'>
+    <main className='container p-4'>
       <div className='plantTitle mb-4'>Plant</div>
       <div className='categoryListing'>
         <div className='categoryListingLink'>
           <img
             src={plant.imgUrls[0]}
             alt='plant_image'
-            className='categoryListingImg'
+            className='categoryListingImg mr-5'
           />
         </div>
         <div className='categoryListingDetails'>
@@ -77,6 +77,14 @@ function Plant({ onDelete, onEdit }) {
           <p className='categoryListingName'>
             Collector: <strong>{plant.collectorName}</strong>
           </p>
+          {auth.currentUser?.uid !== plant.userRef && (
+            <Link
+              to={`/contact/${plant.userRef}?plantName=${plant.name}`}
+              className='btn bg-[#00cc66] border-none '
+            >
+              Contact Collector
+            </Link>
+          )}
         </div>
         {onDelete && (
           <DeleteIcon
@@ -93,9 +101,9 @@ function Plant({ onDelete, onEdit }) {
 
       {plant && (
         <>
-          <p className='herbariumPhotosTile mb-4'>Herbarium photos</p>
+          <p className='herbariumPhotosTitle mb-4'>Herbarium photos</p>
 
-          <Swiper slidesPerView={1} pagination={{ clickable: true }}>
+          <Swiper slidesPerView={2} pagination={{ clickable: true }}>
             {plant.imgUrls.map((url, index) => (
               <SwiperSlide key={index} className='swiper-container'>
                 <div
@@ -116,11 +124,11 @@ function Plant({ onDelete, onEdit }) {
       <div
         className='shareIconDiv'
         onClick={() => {
-          navigator.clipboard.writeText(window.location.href)
-          setShareLinkCopied(true)
+          navigator.clipboard.writeText(window.location.href);
+          setShareLinkCopied(true);
           setTimeout(() => {
-            setShareLinkCopied(false)
-          }, 2000)
+            setShareLinkCopied(false);
+          }, 2000);
         }}
       >
         <img src={shareIcon} alt='' />
@@ -129,7 +137,7 @@ function Plant({ onDelete, onEdit }) {
       {shareLinkCopied && <p className='linkCopied'>Link Copied!</p>}
 
       <p className='plantLocationTitle mb-4'>Location of collection</p>
-      <div className='leafletContainer'>
+      <div className='leafletContainer mb-5'>
         <MapContainer
           style={{ height: '100%', width: '100%' }}
           center={[plant.geolocation.latitude, plant.geolocation.longitude]}
@@ -147,17 +155,8 @@ function Plant({ onDelete, onEdit }) {
           </Marker>
         </MapContainer>
       </div>
-
-      {auth.currentUser?.uid !== plant.userRef && (
-        <Link
-          to={`/contact/${plant.userRef}?plantName=${plant.name}`}
-          className='primaryButton'
-        >
-          Contact Owner
-        </Link>
-      )}
     </main>
-  )
+  );
 }
 
-export default Plant
+export default Plant;

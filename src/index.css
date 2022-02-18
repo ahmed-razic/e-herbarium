@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
-
 * {
   box-sizing: border-box;
 }
@@ -14,92 +13,17 @@ html::-webkit-scrollbar {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #e7e9ec;
-  height: 100vh;
+  background-color: #f2f4f8;
+  margin: 0;
   box-sizing: border-box;
 }
 
-.loadingSpinnerContainer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 5000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.loadingSpinner {
-  width: 64px;
-  height: 64px;
-  border: 8px solid;
-  border-color: #00cc66 transparent #00cc66 transparent;
-  border-radius: 50%;
-  animation: spin 1.2s linear infinite;
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.footerContainer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 8vw;
-  background-color: #2c2b2b;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footerNav {
-  width: 100%;
-  margin-top: 0.75rem;
-  overflow-y: hidden;
-}
-
-.footerListItems {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.footerListItem {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footerListItemName,
-.footerListItemNameActive {
-  margin-top: 0.25rem;
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-}
-.footerListItemNameActive {
-  color: #4fcc4f;
-}
-
-/* a {
+a {
   text-decoration: none;
   display: block;
   color: #000000;
 }
- */
+
 button {
   outline: none;
   border: none;
@@ -158,11 +82,17 @@ button {
   top: -3%;
   right: -2%;
 }
+
 .editIcon {
   cursor: pointer;
   position: absolute;
   top: -3.4%;
   right: 20px;
+}
+
+.pageContainer {
+  height: 100vh;
+  padding-bottom: 100px;
 }
 
 .pageContainer,
@@ -171,9 +101,8 @@ button {
 .listingDetails,
 .category,
 .explore {
-  margin: 1rem;
+  margin: 2rem;
 }
-
 @media (min-width: 1024px) {
   .pageContainer,
   .offers,
@@ -181,7 +110,7 @@ button {
   .listingDetails,
   .category,
   .explore {
-    margin: 3rem 6rem;
+    margin: 3rem;
   }
 }
 
@@ -220,6 +149,52 @@ button {
   font-weight: 800;
 }
 
+.footerContainer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 65px;
+  background-color: #2c2b2b;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.footerNav {
+  width: 100%;
+  margin-top: 0.75rem;
+  overflow-y: hidden;
+}
+
+.footerListItems {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footerListItem {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footerListItemName,
+.footerListItemNameActive {
+  margin-top: 0.25rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+.footerListItemNameActive {
+  color: #4fcc4f;
+}
+
 .nameInput {
   margin-bottom: 2rem;
   background: url('./assets/svg/badgeIcon.svg') #ffffff 2.5% center no-repeat;
@@ -252,7 +227,6 @@ button {
   color: #00cc66;
   font-weight: 600;
   text-align: right;
-  display: block;
 }
 
 .signInBar,
@@ -313,7 +287,7 @@ button {
   justify-content: center;
   align-items: center;
   padding: 0.75rem;
-  margin: 1.5rem;
+  margin: 1rem;
   width: 3rem;
   height: 3rem;
   background-color: #ffffff;
@@ -326,12 +300,11 @@ button {
 }
 
 .registerLink {
-  margin-top: 4rem;
+  margin-top: 1rem;
   color: #00cc66;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 3rem;
-  display: block;
+  margin-bottom: 10rem;
 }
 
 @media (min-width: 1217px) {
@@ -345,18 +318,14 @@ button {
   }
 }
 
-.exploreHeading,
-.exploreCategoryHeading {
+.exploreHeading {
   font-weight: 700;
 }
 
-.exploreCategoryHeading {
-  margin-top: 3rem;
-}
-
 .swiper-container {
+  width: 100%;
   min-height: 225px;
-  height: 50vw;
+  height: 33vw;
 }
 
 .swiper-pagination-bullet-active {
@@ -408,34 +377,8 @@ button {
   }
 }
 
-.exploreCategories {
-  display: flex;
-  justify-content: space-around;
-}
-.exploreCategories a {
-  width: 48%;
-}
-
-.exploreCategoryImg {
-  min-height: 115px;
-  height: 25vw;
-  width: 100%;
-  border-radius: 1.5rem;
-  object-fit: cover;
-  margin: 0 auto;
-}
-
-.exploreCategoryName {
-  font-weight: 500;
-  text-align: left;
-}
-
 .category {
   margin-bottom: 10rem;
-}
-
-.categoryListings {
-  padding: 0;
 }
 
 .categoryListing {
@@ -456,17 +399,17 @@ button {
   border-radius: 1.5rem;
   object-fit: cover;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .categoryListingImg {
     width: 19%;
-    height: 50%;
+    height: 100%;
   }
 }
 
 .categoryListingDetails {
   width: 65%;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .categoryListingDetails {
     width: 79%;
   }
@@ -474,27 +417,8 @@ button {
 
 .categoryListingName {
   font-weight: 600;
-  font-size: 0.9rem;
-  opacity: 0.8;
-  margin-bottom: 0;
-}
-
-.categoryListingMainName {
-  font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 0;
-}
-
-.categoryListingInfoDiv {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 275px;
-}
-
-.categoryListingInfoText {
-  font-weight: 500;
-  font-size: 1.2rem;
 }
 
 .loadMore {
@@ -503,7 +427,7 @@ button {
   margin: 0 auto;
   text-align: center;
   padding: 0.25rem 0.5rem;
-  background-color: #4fcc4f;
+  background-color: #000000;
   color: #ffffff;
   font-weight: 600;
   border-radius: 1rem;
@@ -518,10 +442,10 @@ button {
 .shareIconDiv {
   cursor: pointer;
   position: fixed;
-  top: 3%;
+  top: 15%;
   right: 5%;
   z-index: 2;
-  background-color: #ffffff;
+  background-color: #00cc66;
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
@@ -530,42 +454,6 @@ button {
   align-items: center;
 }
 
-.listingName {
-  font-weight: 600;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.listingLocation {
-  margin-top: 0;
-  font-weight: 600;
-}
-
-.discountPrice {
-  padding: 0.25rem 0.5rem;
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 1rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  display: inline;
-}
-
-.listingType {
-  padding: 0.25rem 0.5rem;
-  background-color: #00cc66;
-  color: #ffffff;
-  border-radius: 2rem;
-  display: inline;
-  font-weight: 600;
-  font-size: 0.8rem;
-  margin-right: 1rem;
-}
-
-.listingDetailsList {
-  padding: 0;
-  list-style-type: none;
-}
 .listingDetailsList li {
   margin: 0.3rem 0;
   font-weight: 500;
@@ -573,8 +461,8 @@ button {
 }
 
 .plantTitle,
-.herbariumPhotosTile,
-.listingLocationTitle {
+.herbariumPhotosTitle,
+.plantLocationTitle {
   margin-top: 2rem;
   font-weight: 600;
   font-size: 1.25rem;
@@ -582,7 +470,7 @@ button {
 
 .leafletContainer {
   width: 100%;
-  height: 400px;
+  height: 200px;
   overflow-x: hidden;
   margin-bottom: 3rem;
 }
@@ -603,12 +491,6 @@ button {
   font-weight: 600;
 }
 
-.contactListingName {
-  margin-top: -1rem;
-  margin-bottom: 0;
-  font-weight: 600;
-}
-
 .contactListingLocation {
   margin-top: 0.25rem;
   font-weight: 600;
@@ -616,6 +498,7 @@ button {
 
 .contactCollector {
   margin-top: 2rem;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
 }
@@ -649,14 +532,14 @@ button {
   justify-content: space-between;
   align-items: center;
 }
-.addPlant,
+
 .logOut {
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
-  background-color: #4fcc4f;
+  background-color: #00cc66;
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
 }
@@ -737,16 +620,6 @@ button {
   font-weight: 600;
 }
 
-.lisitingsList {
-  padding: 0;
-}
-
-@media (min-width: 768px) {
-  form {
-    width: 500px;
-  }
-}
-
 .formLabel {
   font-weight: 600;
   margin-top: 1rem;
@@ -783,11 +656,6 @@ button {
   display: flex;
 }
 
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
 .formInput,
 .formInputAddress,
 .formInputName,
@@ -801,7 +669,7 @@ button {
 .formInputFile {
   margin-right: 3rem;
   padding: 0.9rem 0.7rem;
-  text-align: start;
+  text-align: center;
 }
 
 .formInputName {
@@ -814,16 +682,6 @@ button {
   padding: 0.9rem 1rem;
   width: 90%;
   max-width: 326px;
-}
-
-.formPriceDiv {
-  display: flex;
-  align-items: center;
-}
-
-.formPriceText {
-  margin-left: -1.5rem;
-  font-weight: 600;
 }
 
 .imagesInfo {
@@ -846,52 +704,4 @@ button {
 
 .createListingButton {
   margin-top: 5rem;
-}
-
-.offers {
-  margin-bottom: 10rem;
-}
-
-.offerBadge {
-  padding: 0.25rem 0.5rem;
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 1rem;
-  margin-left: 1rem;
-  font-size: 0.8rem;
-  opacity: 0.75;
-}
-
-.tab {
-  font-weight: bold;
-}
-
-.big-image {
-  height: 90vh;
-  width: 100vw;
-  position: relative;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-image: url('./assets/jpg/nature.jpg');
-}
-
-.overlay {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.65);
-  color: white;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.overlay h1 {
-  font-size: 3rem;
-  letter-spacing: 0px;
-  margin: 0 2.5rem 2.5rem;
-  color: #4fcc4f;
 }
