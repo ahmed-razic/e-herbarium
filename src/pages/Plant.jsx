@@ -1,44 +1,44 @@
-import { Link, useParams } from 'react-router-dom';
-import { ReactComponent as DeleteIcon } from '../assets/svg/deleteIcon.svg';
-import { ReactComponent as EditIcon } from '../assets/svg/editIcon.svg';
-import { useState, useEffect } from 'react';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
-import { getAuth } from 'firebase/auth';
-import { getDoc, doc } from 'firebase/firestore';
-import { db } from '../firebase.config';
-import Spinner from '../components/Spinner';
-import shareIcon from '../assets/svg/shareIcon.svg';
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+import { Link, useParams } from 'react-router-dom'
+import { ReactComponent as DeleteIcon } from '../assets/svg/deleteIcon.svg'
+import { ReactComponent as EditIcon } from '../assets/svg/editIcon.svg'
+import { useState, useEffect } from 'react'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/swiper-bundle.css'
+import { getAuth } from 'firebase/auth'
+import { getDoc, doc } from 'firebase/firestore'
+import { db } from '../firebase.config'
+import Spinner from '../components/Spinner'
+import shareIcon from '../assets/svg/shareIcon.svg'
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
 
 function Plant({ onDelete, onEdit }) {
-  const [plant, setPlant] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [shareLinkCopied, setShareLinkCopied] = useState(false);
-  const auth = getAuth();
-  const params = useParams();
+  const [plant, setPlant] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [shareLinkCopied, setShareLinkCopied] = useState(false)
+  const auth = getAuth()
+  const params = useParams()
 
   useEffect(() => {
     const fetchPlant = async () => {
-      const docRef = doc(db, 'plants', params.id);
-      const docSnap = await getDoc(docRef);
+      const docRef = doc(db, 'plants', params.id)
+      const docSnap = await getDoc(docRef)
 
       if (docSnap.exists()) {
-        setPlant(docSnap.data());
-        setLoading(false);
+        setPlant(docSnap.data())
+        setLoading(false)
       }
-    };
-    fetchPlant();
-  }, []);
+    }
+    fetchPlant()
+  }, [])
 
   if (loading) {
-    return <Spinner />;
+    return <Spinner />
   }
 
   return (
-    <main className='container p-4'>
+    <main className='container p-10 mx-auto'>
       <div className='plantTitle mb-4'>Plant</div>
       <div className='categoryListing'>
         <div className='categoryListingLink'>
@@ -124,11 +124,11 @@ function Plant({ onDelete, onEdit }) {
       <div
         className='shareIconDiv'
         onClick={() => {
-          navigator.clipboard.writeText(window.location.href);
-          setShareLinkCopied(true);
+          navigator.clipboard.writeText(window.location.href)
+          setShareLinkCopied(true)
           setTimeout(() => {
-            setShareLinkCopied(false);
-          }, 2000);
+            setShareLinkCopied(false)
+          }, 2000)
         }}
       >
         <img src={shareIcon} alt='' />
@@ -156,7 +156,7 @@ function Plant({ onDelete, onEdit }) {
         </MapContainer>
       </div>
     </main>
-  );
+  )
 }
 
-export default Plant;
+export default Plant
