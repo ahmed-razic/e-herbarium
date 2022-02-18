@@ -71,7 +71,7 @@ function Herbarium() {
   };
 
   return (
-    <div className='pageContainer'>
+    <div className='container m-4'>
       <header>
         <p className='pageHeader mb-4'>All Plants in Herbarium</p>
       </header>
@@ -81,7 +81,7 @@ function Herbarium() {
       ) : plants && plants.length > 0 ? (
         <>
           <main>
-            <ul className='categoryPlants'>
+            <ul className='categoryListings'>
               {plants.map((plant) => (
                 <HerbariumItem
                   plant={plant.data}
