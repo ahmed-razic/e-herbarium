@@ -3,7 +3,7 @@
 ---
 
 <div>
-<a href="https://cars-commerce.vercel.app/" target="_blank" rel="noopener noreferrer"
+<a href="https://e-herbarium.vercel.app/" target="_blank" rel="noopener noreferrer"
     style="padding:0.5rem 0.7rem;
     color: black;
     background: #F1DEDE;
@@ -23,7 +23,7 @@
 
 ## About
 
-<p>The E-herbarium is a small web app done by me in order to better understand cloud storage and Firebase.</p>
+<p>The E-herbarium is a small web app done by me in order to better understand cloud storage, authentication, Firebase and Firestore.</p>
 
 <p>Working app is deployed on Vercel</p>
 
